@@ -1,0 +1,161 @@
+*{
+    box-sizing: border-box;
+}
+
+body{    
+    background-color: blue;    
+}
+
+.container{
+    padding: 1rem 15rem;
+    display: flex;    
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    grid-row-gap: 0.5rem;    
+    width: 100vw; 
+}
+
+.radio {
+	display: none;
+}
+
+.picture_container {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.pictures{
+    transition: all 0.3s ease 0.1s;
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;    
+}
+
+.pictures img{
+    width: inherit;
+    height: inherit;   
+    border-radius: 1rem; 
+}
+
+.text_container{
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    height: 2.4rem;
+      
+}
+
+.text{
+    transition: all 0.3s ease 0.1s;
+    font-size: 1rem;
+    color: white;        
+}
+
+.controls_container{
+    display: flex;   
+}
+
+label{
+    cursor: pointer;
+}
+
+.controls{
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    background-color: blue;
+    border: 0.18rem solid yellow;      
+    border-radius: 50%;
+    margin: 0 0 0.5rem 0.5rem;
+}
+
+
+/*---------------Изменение слайдов и текста---------*/
+
+#picture1:checked ~ .picture_container .pictures{
+    transform: translate(0);
+}
+#picture1:checked ~ .text_container .text{
+    transform: translate(0);
+}
+
+#picture2:checked ~ .picture_container .pictures{
+    transform: translate(-100%);
+}
+#picture2:checked ~ .text_container .text{
+    transform: translate(0, -100%);
+}
+
+#picture3:checked ~ .picture_container .pictures{
+    transform: translate(-200%);
+}
+#picture3:checked ~ .text_container .text{
+    transform: translate(0, -200%);
+}
+
+#picture4:checked ~ .picture_container .pictures{
+    transform: translate(-300%);
+}
+#picture4:checked ~ .text_container .text{
+    transform: translate(0, -300%);
+}
+
+
+/*---------------Изменение расцветки контролов---------*/
+
+#picture1:checked ~ .controls_container #mem1,
+#picture2:checked ~ .controls_container #mem2,
+#picture3:checked ~ .controls_container #mem3,
+#picture4:checked ~ .controls_container #mem4
+ {  background-color: red;
+    border: 0.18rem solid yellow;
+}
+
+#picture1:hover ~ .controls_container #mem1,
+#picture2:hover ~ .controls_container #mem2,
+#picture3:hover ~ .controls_container #mem3,
+#picture4:hover ~ .controls_container #mem4
+{   background-color: purple;
+    border: 0.18rem solid purple;
+}
+
+#picture1:checked:hover ~ .controls_container #mem1,
+#picture2:checked:hover ~ .controls_container #mem2,
+#picture3:checked:hover ~ .controls_container #mem3,
+#picture4:checked:hover ~ .controls_container #mem4
+{   background-color: purple;
+    border: 0.18rem solid  red;
+}
+
+#picture1:active ~ .controls_container #mem1,
+#picture2:active ~ .controls_container #mem2,
+#picture3:active ~ .controls_container #mem3,
+#picture4:active ~ .controls_container #mem4
+{   background-color: orange;
+    border: 0.18rem solid orangered;
+}
+
+
+/*---------------Мобильная версия---------*/
+
+@media screen and (max-width: 745px){
+    .container {
+        padding: 1rem 10rem;
+        height: 100%;
+        flex-direction: column;
+        align-items: center;        
+    }
+
+    .picture_container {
+        margin-bottom: 2%;
+    }     
+
+    .text_container{
+        order: 3;        
+        align-self: flex-start;
+        width: 100%;
+        
+    }  
+}
